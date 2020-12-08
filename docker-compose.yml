@@ -1,0 +1,23 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    container_name: postgres-db-container
+    environment:
+#      - POSTGRES_DB=dump_db
+#      - POSTGRES_USER=pguser
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-vol:/var/lib/postgresql/data
+      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+
+# Warning: scripts in /docker-entrypoint-initdb.d are only run if you start the container with a data directory that is
+#  empty; any pre-existing database will be left untouched on container startup. One common problem is that if
+#  one of your /docker-entrypoint-initdb.d scripts fails (which will cause the entrypoint script to exit) and
+#  your orchestrator restarts the container with the already initialized data directory,
+#  it will not continue on with your scripts.
+
+volumes:
+  postgres-vol:
