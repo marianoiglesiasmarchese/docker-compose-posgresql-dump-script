@@ -26,8 +26,6 @@ CREATE TABLE public.students (
    l_name character varying(20)
 );
 
-ALTER TABLE public.students OWNER TO postgres;
-
 --
 -- Data for Name: students; Type: TABLE DATA; Schema: public; Owner: postgres
 --

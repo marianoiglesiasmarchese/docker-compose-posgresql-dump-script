@@ -18,6 +18,7 @@ docker-compose up
 
 ```
 docker rm postgres-db-container
+docker container rm postgres-db-container
 docker volume rm docker-compose-posgresql-dump-script_postgres-vol
 docker-compose up
 ```

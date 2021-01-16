@@ -4,8 +4,8 @@ services:
     image: postgres
     container_name: postgres-db-container
     environment:
-#      - POSTGRES_DB=dump_db
-#      - POSTGRES_USER=pguser
+      - POSTGRES_DB=dump_db
+      - POSTGRES_USER=pguser
       - POSTGRES_PASSWORD=postgres
     ports:
       - 5432:5432
@@ -21,3 +21,4 @@ services:
 
 volumes:
   postgres-vol:
+    driver: local
